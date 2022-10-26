@@ -24,8 +24,8 @@ class SpringdatajpaApplicationTests {
 		ProductRepository repository = context.getBean(ProductRepository.class);
 
 		// CREATE
-		Product product = new Product(1L, "Mac", "Awesome", 6500d);
-		repository.save(product);
+		// Product product = new Product(1L, "Mac", "Awesome", 6500d);
+		// repository.save(product);
 
 		// READ BY ID
 		Optional<Product> result = repository.findById(1L);
@@ -37,14 +37,23 @@ class SpringdatajpaApplicationTests {
 		System.out.println(product2);
 
 		// UPDATE
-		product2.setPrice(4000d);
-		repository.save(product2);
+		// product2.setPrice(4000d);
+		// repository.save(product2);
 
 		// READ ALL
 		repository.findAll().forEach(p -> {
 			System.out.println(p.toString());
 		});
 		;
+
+		// READ BY NAME
+		System.out.println(repository.findByName("mac"));
+
+		// READ BY PRICE
+		System.out.println(repository.findByPrice(4000d));
+
+		// READ BY NAME AND PRICE
+		System.out.println(repository.findByNameAndPrice("MAC", 4000d));
 
 	}
 
