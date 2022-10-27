@@ -1,5 +1,6 @@
 package br.com.spring.data;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,9 @@ class SpringdatajpaApplicationTests {
 
 	@Autowired
 	ApplicationContext context;
+
+	@Autowired
+	List<String> courseList;
 
 	@Test
 	public void saveProduct() {
@@ -54,6 +58,8 @@ class SpringdatajpaApplicationTests {
 
 		// READ BY NAME AND PRICE
 		System.out.println(repository.findByNameAndPrice("MAC", 4000d));
+
+		System.out.println(courseList);
 
 	}
 
